@@ -1,7 +1,10 @@
 ```bash
-npm install
+cd Back/
 ```
 
+```bash
+npm install
+```
 
 ```bash
 composer install
