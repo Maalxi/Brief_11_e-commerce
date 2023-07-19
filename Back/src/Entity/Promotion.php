@@ -4,10 +4,21 @@ namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\PromotionRepository;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Get;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PromotionRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    operations: [
+        new GetCollection(
+            normalizationContext: ['groups' => ['promos_read']]
+        ),
+        new Get(
+            normalizationContext: ['groups' => ['promo_read']]
+        )
+    ]
+)]
 class Promotion
 {
     #[ORM\Id]
