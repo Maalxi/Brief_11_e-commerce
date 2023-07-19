@@ -1,0 +1,126 @@
+.footerFullContainer {
+    background-color: #D90853;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+
+/* ////////////////////// footerContainerTop //////////////////////// */
+
+.footerContainerTop {
+    flex-wrap: wrap;
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: space-evenly;
+    margin: 30px;
+}
+
+.footerContainerTopList {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+.imgLogoFooter {
+    width: 100px;
+    border-radius: 50%;
+    margin-left: 30px;
+}
+
+.titleFooter {
+    color: white;
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.paraFooter {
+    color: white;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin: 10px 0;
+}
+
+.linkFooter {
+    color: white;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.linkFooter:hover {
+    color: #dda2b8;
+}
+
+
+
+
+/* ////////////////////// footerContainerMiddle //////////////////////// */
+.footerContainerMidlle {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgRegleFooter {
+    width: 80%;
+}
+
+
+/* ////////////////////// footerContainerBottom //////////////////////// */
+
+
+
+.footerLine {
+    width: 90%;
+    height: 1px;
+    margin: 20px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 255), rgba(255, 255, 255, 0));
+}
+
+
+
+/* ////////////////////// newsletter //////////////////////// */
+.newsletterForm {
+    display: flex;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 2px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.33);
+}
+
+input[type="email"] {
+    width: 94px;
+    padding: 8px;
+    border: 1px solid #D90853;
+}
+
+button[type="submit"] {
+    background-color: #D90853;
+    color: #fff;
+    border: 1px solid #D90853;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: white;
+    color: #D90853;
+}
