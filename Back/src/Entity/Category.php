@@ -6,6 +6,7 @@ use ApiPlatform\Metadata\ApiResource;
 use App\Repository\CategoryRepository;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Get;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -26,9 +27,11 @@ class Category
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['cats_read', 'cat_read','products_read', 'product_read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
+    #[Groups(['cats_read', 'cat_read','products_read', 'product_read'])]
     private ?string $name = null;
 
     #[ORM\OneToMany(mappedBy: 'cat', targetEntity: Product::class, orphanRemoval: true)]
