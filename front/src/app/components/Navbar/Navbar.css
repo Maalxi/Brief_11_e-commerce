@@ -1,0 +1,82 @@
+/* Basic Styling */
+
+.logo {
+	border-radius: 50%;
+  max-width: 50px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+	align-items: center;
+}
+
+ul li {
+  list-style: none;
+}
+
+ul li a {
+  padding: 1.1em;
+  color: white;
+  text-decoration: none;
+  -webkit-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+ul li a:hover {
+  background-color: #E1F9E6;
+  color: #D90853;
+}
+
+.hoverLogo {
+	padding: 0 !important;
+}
+
+.hoverLogo:hover {
+	background-color: #D90853 !important;
+  color: #FFFFFF !important;
+	margin-left: 10px !important;
+	padding: 0 !important;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #D90853;
+  color: white;
+}
+
+.nav .slam-left {
+  margin-right: auto;
+}
+
+@media all and (max-width: 500px) {
+  ul {
+    padding: 0;
+  }
+
+  ul li {
+    width: 100%;
+  }
+
+  ul li a {
+    display: block;
+    text-align: center;
+  }
+
+  .nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .nav .slam-left {
+    margin-right: 0;
+  }
+}
