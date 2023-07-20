@@ -1,0 +1,40 @@
+.navbarContainer {
+  width: 100%;
+  height: 80px;
+  background-color: #D90853;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid #d8f8df57;
+}
+
+.imgLogoHeader {
+  width: 70px;
+  border-radius: 50%;
+}
+
+.navbarContainerLinks {
+  display: flex;
+}
+
+.navbarContainerLi {
+  list-style-type: none;
+}
+
+.navbarContainerLink {
+  display: block;
+  font-family: sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+  padding: 2.5em;
+  background-color: transparent;
+  transition: 0.4s;
+}
+
+.navbarContainerLink:hover,
+.selectedMenu {
+  background-color: #D8F8DF;
+  color: #D90853;
+}
