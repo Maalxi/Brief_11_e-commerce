@@ -1,5 +1,7 @@
 .CategoryCardLink {
     text-decoration: none;
+    max-width: 100px;
+    display: block;
 }
 
 .CategoryCardContainer {
@@ -7,13 +9,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80px;
+    width: 100px;
+    max-width: 100px;
     background-color: #D8F8DF;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.33);
 }
 
 .CategoryCardImg {
-    border: 2px solid #D90853;
+    border: 1px solid #D90853;
 }
 
 .CategoryCardTitle {
@@ -21,9 +24,9 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 80px;
+    width: 100px;
     height: 30px;
-    border-width: 0px 2px 2px 2px;
+    border-width: 0px 1px 1px 1px;
     border-style: none solid solid solid;
     border-color: transparent #D90853 #D90853 #D90853;
     color: #3C3C3C;

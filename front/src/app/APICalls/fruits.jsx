@@ -18,6 +18,17 @@ const getFruits = async () => {
     console.error(error)
   }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  if (!fruitsData.ok) {
+    throw new Error("Ne peut pas récupérer les fruits");
+  }
+
+  return fruitsData.json();
+>>>>>>> Samuel
+>>>>>>> master
 };
 
 const FruitsList = () => {

@@ -2,20 +2,20 @@ import Image from "next/image";
 import './CategoryCard.css';
 import Link from "next/link";
 
-export default function CategoryCard(url) {
+export default function CategoryCard({ImgCard, titleCard}) {
     return (
         <>
             <Link className="CategoryCardLink" href='#'>
                 <div className="CategoryCardContainer">
 
                     <Image className="CategoryCardImg"
-                        src="/image/PanierVegetal.jpg"
+                        src={ImgCard}
                         alt="Panier végétal"
-                        width={80}
-                        height={80}
+                        width={100}
+                        height={100}
                     />
 
-                    <p className="CategoryCardTitle">FRUITS</p>
+                    <p className="CategoryCardTitle">{titleCard}</p>
 
                 </div>
             </Link>
