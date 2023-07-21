@@ -22,7 +22,9 @@
 }
 
 .navbarContainerLink {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-family: sans-serif;
   font-size: 13px;
   font-weight: 600;
