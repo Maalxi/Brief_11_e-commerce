@@ -6,7 +6,7 @@ ___
 Cloner le projet en local
 
 ```shell
-git@github.com:Maalxi/Brief_11_e-commerce.git
+git clone git@github.com:Maalxi/Brief_11_e-commerce.git
 cd Brief_11_e-commerce
 ```
 
