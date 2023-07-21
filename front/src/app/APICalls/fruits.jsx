@@ -24,11 +24,7 @@ const FruitsList = () => {
 
   useEffect(() => {
     // const fetchData = async () => {
-<<<<<<< HEAD
-      // const fruitsData = await fetch("http://127.0.0.1:8001/api/products");
-=======
       // const fruitsData = await fetch("http://127.0.0.1:8001/api/products%22);
->>>>>>> master
       // const data = await getFruits();
       // setFruits(data.results);
       getFruits();
