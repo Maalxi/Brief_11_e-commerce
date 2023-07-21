@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Layout from "../Layout";
 
-export default function Boulangerie() {
+export default function Category() {
   return (
     <Layout>
-
-      </Layout>
+      <h1>Toutes les catégories</h1>
+    </Layout>
   );
 }
