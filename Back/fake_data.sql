@@ -1,3 +1,11 @@
+-- Vide les tables de leurs data
+DELETE FROM product_reservation;
+DELETE FROM reservation;
+DELETE FROM product;
+DELETE FROM category;
+DELETE FROM user;
+DELETE FROM promotion;
+
 -- Ajout de données dans la table `category`
 INSERT INTO `category` (`id`, `name`,`image`) VALUES
 (1, 'Fruits', 'image.png'),
@@ -9,7 +17,8 @@ INSERT INTO `category` (`id`, `name`,`image`) VALUES
 (7, 'Céréales', 'image.png'),
 (8, 'Conserves', 'image.png'),
 (9, 'Boissons', 'image.png'),
-(10, 'Hygiène', 'image.png');
+(10, 'Hygiène', 'image.png'),
+(11, 'Ménager', 'image.png');
 
 -- Ajout de données dans la table `product`
 INSERT INTO `product` (`id`, `cat_id`, `name`, `description`, `price`, `inventory`, `image`) VALUES
@@ -47,7 +56,11 @@ INSERT INTO `product` (`id`, `cat_id`, `name`, `description`, `price`, `inventor
 (15, 9, 'Eau Minérale', 'Eau minérale naturelle', 0.89, 200, 'eau_minerale.jpg'),
 
 -- Hygiène
-(16, 10, 'Savon Liquide', 'Savon liquide doux pour les mains', 1.49, 60, 'savon_liquide.jpg');
+(16, 10, 'Savon Liquide', 'Savon liquide doux pour les mains', 1.49, 60, 'savon_liquide.jpg'),
+
+-- Ménager
+(17, 11, 'Produit vaiselle', 'Produit vaiselle doux pour les mains', 3.00, 30, 'Produit_vaiselle.jpg'),
+(18, 11, 'Détergent à lessive', 'Détergent à lessive efficace pour tout type de vêtement', 5.50, 50, 'Detergent.jpg');
 
 -- Ajout de données dans la table `promotion`
 INSERT INTO `promotion` (`id`, `code`, `reduction`, `image`) VALUES
