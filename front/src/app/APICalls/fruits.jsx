@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const getFruits = async () => {
   try {
-    const fruitsData = await fetch("https://localhost:8001/api/products");
+    const fruitsData = await fetch("http://localhost:8001/api/products");
     const data = await fruitsData.json()
     console.log(data["hydra:member"]);
 
@@ -18,17 +18,6 @@ const getFruits = async () => {
     console.error(error)
   }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-  if (!fruitsData.ok) {
-    throw new Error("Ne peut pas récupérer les fruits");
-  }
-
-  return fruitsData.json();
->>>>>>> Samuel
->>>>>>> master
 };
 
 const FruitsList = () => {
