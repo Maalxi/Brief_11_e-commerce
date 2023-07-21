@@ -34,11 +34,14 @@ class Category
     #[Groups(['cats_read', 'cat_read','products_read', 'product_read'])]
     private ?string $name = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['cats_read', 'cat_read','products_read', 'product_read'])]
+    private ?string $image = null;
+
     #[ORM\OneToMany(mappedBy: 'cat', targetEntity: Product::class, orphanRemoval: true)]
     private Collection $products;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $image = null;
+    
 
     public function __construct()
     {

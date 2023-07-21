@@ -1,15 +1,24 @@
+-- Vide les tables de leurs data
+DELETE FROM product_reservation;
+DELETE FROM reservation;
+DELETE FROM product;
+DELETE FROM category;
+DELETE FROM user;
+DELETE FROM promotion;
+
 -- Ajout de données dans la table `category`
 INSERT INTO `category` (`id`, `name`,`image`) VALUES
-(1, 'Fruits', 'image.png'),
-(2, 'Légumes', 'image.png'),
-(3, 'Laitage', 'image.png'),
-(4, 'Boulangerie', 'image.png'),
-(5, 'Viandes', 'image.png'),
-(6, 'Pâtes', 'image.png'),
-(7, 'Céréales', 'image.png'),
-(8, 'Conserves', 'image.png'),
-(9, 'Boissons', 'image.png'),
-(10, 'Hygiène', 'image.png');
+(1, 'Fruits', 'Fruit.png'),
+(2, 'Légumes', 'Legume.png'),
+(3, 'Laitage', 'Laitage.png'),
+(4, 'Boulangerie', 'Boulangerie.png'),
+(5, 'Viandes', 'Viande.png'),
+(6, 'Pâtes', 'Pate.png'),
+(7, 'Céréales', 'Cereale.png'),
+(8, 'Conserves', 'Conserve.png'),
+(9, 'Boissons', 'Boisson.png'),
+(10, 'Hygiène', 'Hygiene.png'),
+(11, 'Ménager', 'Menager.png');
 
 -- Ajout de données dans la table `product`
 INSERT INTO `product` (`id`, `cat_id`, `name`, `description`, `price`, `inventory`, `image`) VALUES
@@ -47,7 +56,11 @@ INSERT INTO `product` (`id`, `cat_id`, `name`, `description`, `price`, `inventor
 (15, 9, 'Eau Minérale', 'Eau minérale naturelle', 0.89, 200, 'eau_minerale.jpg'),
 
 -- Hygiène
-(16, 10, 'Savon Liquide', 'Savon liquide doux pour les mains', 1.49, 60, 'savon_liquide.jpg');
+(16, 10, 'Savon Liquide', 'Savon liquide doux pour les mains', 1.49, 60, 'savon_liquide.jpg'),
+
+-- Ménager
+(17, 11, 'Produit vaiselle', 'Produit vaiselle doux pour les mains', 3.00, 30, 'produit_vaiselle.jpg'),
+(18, 11, 'Détergent à lessive', 'Détergent à lessive efficace pour tout type de vêtement', 5.50, 50, 'detergent.jpg');
 
 -- Ajout de données dans la table `promotion`
 INSERT INTO `promotion` (`id`, `code`, `reduction`, `image`) VALUES
