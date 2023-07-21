@@ -8,17 +8,17 @@ DELETE FROM promotion;
 
 -- Ajout de données dans la table `category`
 INSERT INTO `category` (`id`, `name`,`image`) VALUES
-(1, 'Fruits', 'image.png'),
-(2, 'Légumes', 'image.png'),
-(3, 'Laitage', 'image.png'),
-(4, 'Boulangerie', 'image.png'),
-(5, 'Viandes', 'image.png'),
-(6, 'Pâtes', 'image.png'),
-(7, 'Céréales', 'image.png'),
-(8, 'Conserves', 'image.png'),
-(9, 'Boissons', 'image.png'),
-(10, 'Hygiène', 'image.png'),
-(11, 'Ménager', 'image.png');
+(1, 'Fruits', 'Fruit.png'),
+(2, 'Légumes', 'Legume.png'),
+(3, 'Laitage', 'Laitage.png'),
+(4, 'Boulangerie', 'Boulangerie.png'),
+(5, 'Viandes', 'Viande.png'),
+(6, 'Pâtes', 'Pate.png'),
+(7, 'Céréales', 'Cereale.png'),
+(8, 'Conserves', 'Conserve.png'),
+(9, 'Boissons', 'Boisson.png'),
+(10, 'Hygiène', 'Hygiene.png'),
+(11, 'Ménager', 'Menager.png');
 
 -- Ajout de données dans la table `product`
 INSERT INTO `product` (`id`, `cat_id`, `name`, `description`, `price`, `inventory`, `image`) VALUES
