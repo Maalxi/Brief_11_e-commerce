@@ -59,8 +59,8 @@ INSERT INTO `product` (`id`, `cat_id`, `name`, `description`, `price`, `inventor
 (16, 10, 'Savon Liquide', 'Savon liquide doux pour les mains', 1.49, 60, 'savon_liquide.jpg'),
 
 -- Ménager
-(17, 11, 'Produit vaiselle', 'Produit vaiselle doux pour les mains', 3.00, 30, 'Produit_vaiselle.jpg'),
-(18, 11, 'Détergent à lessive', 'Détergent à lessive efficace pour tout type de vêtement', 5.50, 50, 'Detergent.jpg');
+(17, 11, 'Produit vaiselle', 'Produit vaiselle doux pour les mains', 3.00, 30, 'produit_vaiselle.jpg'),
+(18, 11, 'Détergent à lessive', 'Détergent à lessive efficace pour tout type de vêtement', 5.50, 50, 'detergent.jpg');
 
 -- Ajout de données dans la table `promotion`
 INSERT INTO `promotion` (`id`, `code`, `reduction`, `image`) VALUES
