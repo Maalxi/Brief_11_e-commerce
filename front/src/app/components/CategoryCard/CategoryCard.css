@@ -1,0 +1,34 @@
+.CategoryCardLink {
+    text-decoration: none;
+}
+
+.CategoryCardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    background-color: #D8F8DF;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.33);
+}
+
+.CategoryCardImg {
+    border: 2px solid #D90853;
+}
+
+.CategoryCardTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 80px;
+    height: 30px;
+    border-width: 0px 2px 2px 2px;
+    border-style: none solid solid solid;
+    border-color: transparent #D90853 #D90853 #D90853;
+    color: #3C3C3C;
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    background-color: white;
+}
