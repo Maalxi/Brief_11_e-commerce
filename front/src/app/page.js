@@ -5,13 +5,13 @@ import styles from "./pageAccueil.module.css";
 
 import Layout from "./Layout.jsx";
 import Hero from "./components/Hero/Hero";
-import CategoryCard from "./components/CategoryCard/CategoryCard";
+import CategoryCardsBox from "./components/CategoryCard/CategoryCardsBox";
 
 export default function Home() {
   return (
     <Layout>
       <Hero />
-      <CategoryCard />
+      <CategoryCardsBox />
     </Layout>
   );
 }

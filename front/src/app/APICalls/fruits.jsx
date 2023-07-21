@@ -7,16 +7,17 @@ const getFruits = async () => {
     const fruitsData = await fetch("http://localhost:8001/api/products");
     const data = await fruitsData.json()
     console.log(data["hydra:member"]);
+
+    if (!fruitsData.ok) {
+      throw new Error("Ne peut pas récupérer les fruits");
+    }
+  
+    return data;
+
   } catch (error) {
     console.error(error)
   }
 
-
-  if (!fruitsData.ok) {
-    throw new Error("Ne peut pas récupérer les fruits");
-  }
-
-  return fruitsData.json();
 };
 
 const FruitsList = () => {
