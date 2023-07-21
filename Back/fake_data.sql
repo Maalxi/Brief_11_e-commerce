@@ -1,15 +1,15 @@
 -- Ajout de données dans la table `category`
-INSERT INTO `category` (`id`, `name`) VALUES
-(1, 'Fruits'),
-(2, 'Légumes'),
-(3, 'Laitage'),
-(4, 'Boulangerie'),
-(5, 'Viandes'),
-(6, 'Pâtes'),
-(7, 'Céréales'),
-(8, 'Conserves'),
-(9, 'Boissons'),
-(10, 'Hygiène');
+INSERT INTO `category` (`id`, `name`,`image`) VALUES
+(1, 'Fruits', 'image.png'),
+(2, 'Légumes', 'image.png'),
+(3, 'Laitage', 'image.png'),
+(4, 'Boulangerie', 'image.png'),
+(5, 'Viandes', 'image.png'),
+(6, 'Pâtes', 'image.png'),
+(7, 'Céréales', 'image.png'),
+(8, 'Conserves', 'image.png'),
+(9, 'Boissons', 'image.png'),
+(10, 'Hygiène', 'image.png');
 
 -- Ajout de données dans la table `product`
 INSERT INTO `product` (`id`, `cat_id`, `name`, `description`, `price`, `inventory`, `image`) VALUES
