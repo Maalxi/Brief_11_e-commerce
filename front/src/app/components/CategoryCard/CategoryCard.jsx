@@ -11,8 +11,8 @@ export default function CategoryCard(url) {
                     <Image className="CategoryCardImg"
                         src="/image/PanierVegetal.jpg"
                         alt="Panier végétal"
-                        width={80}
-                        height={80}
+                        width={100}
+                        height={100}
                     />
 
                     <p className="CategoryCardTitle">FRUITS</p>
