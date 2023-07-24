@@ -1,15 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {}
 
+// next.config.js
 module.exports = {
-    images: {
-      remotePatterns: [
-        {
-          protocol: 'http',
-          hostname: 'localhost:',
-          port: '8001',
-          pathname: '/uploads/images/**',
-        },
-      ],
-    },
-  }
+  images: {
+    domains: ['127.0.0.1'], // Ajoutez le hostname (domaine) à la liste des domaines autorisés pour les images
+  },
+};
+
