@@ -17,9 +17,6 @@ const getCategories = async () => {
   } catch (error) {
     console.error(error)
   }
-
-
-
 };
 
 const CategoriesList = () => {

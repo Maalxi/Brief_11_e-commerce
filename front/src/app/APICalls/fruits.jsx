@@ -17,7 +17,6 @@ const getFruits = async () => {
   } catch (error) {
     console.error(error)
   }
-
 };
 
 const FruitsList = () => {
@@ -25,7 +24,7 @@ const FruitsList = () => {
 
   useEffect(() => {
     // const fetchData = async () => {
-      // const fruitsData = await fetch("http://127.0.0.1:8001/api/products%22);
+      // const fruitsData = await fetch("http://127.0.0.1:8001/api/products);
       // const data = await getFruits();
       // setFruits(data.results);
       getFruits();
