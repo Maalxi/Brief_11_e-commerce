@@ -1,5 +1,5 @@
 
-import fetchData from "@/app/APICalls/fetch";
+import getData from "@/app/APICalls/fetch";
 import CategoryCard from "./CategoryCard";
 import { useEffect, useState } from "react";
 
@@ -11,7 +11,7 @@ export default function CategoryCardsBox({ titleCardsContainer }) {
     // }
 
     
-    let cat = fetchData("http://localhost:8001/api/categories");
+    let cat = getData("http://localhost:8001/api/categories");
     setResult(cat)
     console.log(result);
     // useEffect(() => {
