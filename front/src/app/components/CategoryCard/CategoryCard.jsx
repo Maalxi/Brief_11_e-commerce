@@ -2,10 +2,9 @@ import Image from "next/image";
 import './CategoryCard.css';
 import Link from "next/link";
 
-import { base_url } from "@/app/APICalls/base_url";
 
 export default function CategoryCard({ image, name, key }) { // Utilisez des accolades pour déstructurer les props
-    const img_url = base_url + "127.0.0.1:8001/uploads/images/" + image; // Construisez correctement l'URL
+    const img_url = "http://127.0.0.1:8001/uploads/images/" + image; // Construisez correctement l'URL
 
     return (
         <>

@@ -10,8 +10,8 @@ export default function CardContainer() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await customFetch(base_url + "127.0.0.1:8001/api/categories");
-        console.log(data); // Vérifiez les données récupérées dans la console
+        const data = await customFetch("http://127.0.0.1:8001/api/categories");
+        // console.log(data); // Vérifiez les données récupérées dans la console
         setCatData(data["hydra:member"]); // Stockez les données dans le state
       } catch (error) {
         console.error(error);
@@ -26,7 +26,7 @@ export default function CardContainer() {
     return <div>Loading...</div>; // Vous pouvez afficher un message de chargement ou une indication que les données sont en cours de chargement
   }
 
-  console.log(catData); // Vérifiez catData avant le rendu
+  // console.log(catData); // Vérifiez catData avant le rendu
 
   return (
     <>
