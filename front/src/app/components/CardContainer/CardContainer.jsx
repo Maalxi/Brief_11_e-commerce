@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import customFetch from "@/app/APICalls/fetch";
 import CategoryCard from "../CategoryCard/CategoryCard";
+import { base_url } from "@/app/APICalls/base_url";
 
 export default function CardContainer() {
   const [catData, setCatData] = useState([]);
@@ -11,7 +12,6 @@ export default function CardContainer() {
     const fetchData = async () => {
       try {
         const data = await customFetch(base_url + "127.0.0.1:8001/api/categories");
-        console.log(data); // Vérifiez les données récupérées dans la console
         setCatData(data["hydra:member"]); // Stockez les données dans le state
       } catch (error) {
         console.error(error);
@@ -26,7 +26,6 @@ export default function CardContainer() {
     return <div>Loading...</div>; // Vous pouvez afficher un message de chargement ou une indication que les données sont en cours de chargement
   }
 
-  console.log(catData); // Vérifiez catData avant le rendu
 
   return (
     <>
