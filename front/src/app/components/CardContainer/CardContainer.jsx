@@ -29,11 +29,17 @@ export default function CardContainer() {
   console.log(catData); // Vérifiez catData avant le rendu
 
   return (
-    <div className="flex align-item-center">
-      {catData.map((item, index) => (
-        <CategoryCard key={index} name={item.name} image={item.image} />
-        // <p>{item.name}</p>
-      ))}
-    </div>
+    <>
+      <div className="cardsContainerBox">
+      <h2 className="cardsContainerTitle">Catégories</h2>
+
+      <div className="cardsContainer">
+        {catData.map((item, index) => (
+          <CategoryCard key={index} name={item.name} image={item.image} />
+          // <p>{item.name}</p>
+        ))}
+      </div>
+    </div >
+    </>
   );
 }
