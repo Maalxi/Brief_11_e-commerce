@@ -1,5 +1,4 @@
 import Layout from "@/app/Layout";
-import Image from "next/image";
 
 export default function DetailsProduits() {
   return (

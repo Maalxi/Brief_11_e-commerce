@@ -1,10 +1,14 @@
-import Image from "next/image";
 import Layout from "../Layout";
+import CardContainer from "../components/CardContainer/CardContainer";
+import ContainerProduit from "../components/ContainerProduit/ContainerProduit";
+import '../components/Hero/Hero.css';
 
 export default function Produits() {
   return (
     <Layout>
-      <h1>Page des produits</h1>
+      <CardContainer />
+      <div className="heroLine"></div>
+      <ContainerProduit />
     </Layout>
   );
 }
