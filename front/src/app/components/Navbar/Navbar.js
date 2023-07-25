@@ -25,7 +25,7 @@ export default function Navbar() {
       )
     },
     {
-      href: "/#",
+      href: "/produits",
       label: (
         <>
           <FaListUl /> Produits
@@ -33,7 +33,7 @@ export default function Navbar() {
       )
     },
     {
-      href: "/#",
+      href: "/panier",
       label: (
         <>
           <RiShoppingBasket2Line /> Panier
@@ -41,7 +41,7 @@ export default function Navbar() {
       )
     },
     {
-      href: "/#",
+      href: "/contact",
       label: (
         <>
           <BsEnvelope /> Contact
@@ -51,7 +51,6 @@ export default function Navbar() {
   ]
 
   const handleMenuSelection = (index) => {
-    console.log(index)
     setSelectedMenu(index)
   }
 
