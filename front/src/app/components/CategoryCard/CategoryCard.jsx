@@ -3,7 +3,7 @@ import './CategoryCard.css';
 import Link from "next/link";
 
 export default function CategoryCard({ image, name, key }) { // Utilisez des accolades pour déstructurer les props
-    const img_url = "http://127.0.0.1:8001/uploads/images/" + image; // Construisez correctement l'URL
+    const img_url = "https://127.0.0.1:8001/uploads/images/" + image; // Construisez correctement l'URL
 
     return (
         <>
