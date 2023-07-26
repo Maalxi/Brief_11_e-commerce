@@ -18,8 +18,6 @@ export default function SearchBar() {
   // Fonction pour gérer la soumission de la recherche
   function handleSearchSubmit(event) {
     event.preventDefault();
-    // Ici, vous pouvez ajouter la logique pour traiter la recherche, par exemple, envoyer la requête à une API, etc.
-    console.log('Recherche soumise :', searchValue);
   }
 
   return (

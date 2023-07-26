@@ -13,7 +13,7 @@ export default function CategoryCard({ image, name, key, cat_id }) { // Utilisez
 
                     <Image className="CategoryCardImg"
                         src={img_url} // Utilisez img_url pour l'attribut src de l'Image
-                        alt={key}
+                        alt={cat_id}
                         width={80}
                         height={80}
                     />

@@ -13,8 +13,6 @@ export default function Footer() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Gérer la soumission du formulaire ici avec la valeur de l'e-mail (stockée dans la variable `email`)
-        console.log('Email soumis :', email);
     };
 
 

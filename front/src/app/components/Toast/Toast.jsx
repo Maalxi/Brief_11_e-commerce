@@ -1,8 +1,12 @@
+'use client'
 
-import { Toast } from 'primereact/toast';
+import { AppContext } from '@/app/AppContext';
+import { Toast as PToast } from 'primereact/toast';
+import { useContext } from 'react';
 
-const ErrorToast = ({ message }) => {
+export const Toast = ({ message }) => {
+    const { toast } = useContext(AppContext)
   return (
-    <Toast severity="error" life={5000} summary="Erreur" detail={message} />
+    <PToast ref={toast}/>
   );
 };

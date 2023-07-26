@@ -23,7 +23,6 @@ export default function ContainerProduit() {
   const fetchDataProd = async () => {
     try {
       const data = await customFetch(base_url + "127.0.0.1:8001/api/products");
-      console.log(data); // Vérifiez les données récupérées dans la console
       setprodData(data["hydra:member"]); // Stockez les données dans le state
     } catch (error) {
       console.error(error);
@@ -56,7 +55,6 @@ export default function ContainerProduit() {
   }
 
   const handleClick = (catId) => {
-    console.log(catId);
     setSelectedCategoryId(catId);
   }
 
@@ -73,6 +71,7 @@ export default function ContainerProduit() {
                 key={index + 1}
                 name={item.name}
                 image={item.image}
+                id={item.id}
               />
             </div>
 
@@ -87,6 +86,7 @@ export default function ContainerProduit() {
             .filter((item) => selectedCategoryId === null || (item.cat && item.cat.id === selectedCategoryId))
             .map((item, index) => (
               <ProduitCard
+                id={item.id}
                 key={index + 1}
                 name={item.name}
                 desc={item.description}
