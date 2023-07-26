@@ -37,10 +37,8 @@ export default function SearchBar() {
       fetchDataProd(searchValue);
     } else {
       setProdData([]); // vide le tableau de résultat si la chaîne de recherche est trop courte
-      console.log('Recherche trop courte');
     }
 }
-
 
   return (
     <div>
