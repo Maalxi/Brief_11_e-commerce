@@ -33,8 +33,12 @@ export default function SearchBar() {
 
   function handleSearchSubmit(event) {
     event.preventDefault();
-    fetchDataProd(searchValue);
-  }
+    if (searchValue.length >= 3) {
+      fetchDataProd(searchValue);
+    } else {
+      setProdData([]); // vide le tableau de résultat si la chaîne de recherche est trop courte
+    }
+}
 
   return (
     <div>
@@ -58,6 +62,7 @@ export default function SearchBar() {
           <div>
             {prodData.map((item, index) => (
               <ProduitCard
+                id={item.id}
                 key={index + 1}
                 name={item.name}
                 desc={item.description}
