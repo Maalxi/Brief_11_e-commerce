@@ -12,6 +12,22 @@
   border-radius: 50%;
 }
 
+/* Alignement horizontal du logo et de l'icône du menu burger */
+.navbarContainer > img,
+.navbarContainer > .burgerMenu {
+  margin-right: 10px;
+}
+
+.burgerMenu {
+  display: none;
+  color: white;
+}
+
+.burgerMenu svg {
+  width: 100%;
+  height: 100%;
+}
+
 .navbarContainerLinks {
   display: flex;
 }
@@ -38,4 +54,60 @@
 .selectedMenu {
   background-color: #D8F8DF;
   color: #D90853;
+}
+
+/* MENU BURGER */
+@media screen and (max-width: 700px) {
+  .navbarContainer {
+    flex-direction: column; /* Affiche les éléments verticalement */
+    align-items: center; /* Centre verticalement les éléments */
+    height: auto;
+  }
+
+  .imgLogoHeader {
+    margin: 10px 0; /* Ajustement du logo pour centrer horizontalement */
+  }
+  
+  .logoBurgerContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbarContainerLinks {
+    flex-direction: column; /* Affiche les liens verticalement */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    display: none; /* Par défaut, le menu est masqué */
+  }
+
+  .navbarContainerLink {
+    gap: 10px;
+    padding: 15px;
+    background-color: transparent;
+    transition: 0.4s;
+  }
+
+  /* Affiche le menu quand la classe styles.open est appliquée */
+  .navbarContainerLinks.open {
+    display: flex;
+  }
+
+  /* Styles pour le burger menu */
+  .burgerMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; /* Centre horizontalement l'icône du menu burger */
+    height: 24px;
+    cursor: pointer;
+    margin-bottom: 10px; /* Ajout d'espacement en bas du burger menu */
+  }
+
+  .burgerMenuLine {
+    width: 24px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
 }
