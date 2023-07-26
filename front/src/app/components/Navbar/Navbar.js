@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Navbar.module.css'
 import Link from 'next/link';
 
@@ -13,8 +13,23 @@ import { useState } from "react";
 
 
 export default function Navbar() {
-  const [selectedMenu, setSelectedMenu] = useState();
+  
+  const [selectedMenu, setSelectedMenu] = useState(null);
 
+  useEffect(() => {
+    const savedSelectedMenu = localStorage.getItem('selectedMenu');
+    if (savedSelectedMenu !== null) {
+      setSelectedMenu(JSON.parse(savedSelectedMenu));
+    } else {
+      setSelectedMenu(0);
+    }
+  }, [])
+
+  const handleMenuSelection = (index) => {
+    setSelectedMenu(index === selectedMenu ? selectedMenu : index);
+    localStorage.setItem('selectedMenu', JSON.stringify(index === selectedMenu ? selectedMenu : index));
+  };
+  
   const menuLinks = [
     {
       href: "/",
@@ -48,15 +63,8 @@ export default function Navbar() {
         </>
       )
     },
-  ]
+  ];
 
-  const handleMenuSelection = (index) => {
-    setSelectedMenu(index)
-  }
-
-  const handleLogoClick = () => {
-    setSelectedMenu(null);
-  };
 
   return (
     <nav className={styles.navbarContainer}>

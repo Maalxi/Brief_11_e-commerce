@@ -1,0 +1,83 @@
+.formContactAll {
+  display: flex;
+  margin: 30px auto;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  background: white;
+  width: 90%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.formContactDroite {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 50%;
+  padding: 3%;
+  gap: 30px;
+}
+
+.formContactGauche {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  border-right: 1px solid #d90853;
+  padding: 3%;
+}
+
+.h2Contact {
+  text-align: center;
+}
+
+.inputContact,
+#inputEmailContact {
+  width: 90%;
+  border: 2px solid #d90853;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.InputFormContact {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  resize: none;
+}
+
+.iconContact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: #d90853;
+  border-radius: 50%;
+  color: white;
+}
+
+.Address, .Telephone, .Mail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .formContactAll {
+    flex-direction: column;
+  }
+
+  .formContactGauche {
+    border-right: none;
+    border-bottom: 1px solid #d90853;
+    width: 90%;
+  }
+
+  .formContactDroite {
+    width: 90%;
+  }
+}
