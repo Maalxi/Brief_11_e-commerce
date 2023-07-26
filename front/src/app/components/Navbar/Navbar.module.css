@@ -5,7 +5,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-bottom: 1px solid #d8f8df57;
 }
 
 .imgLogoHeader {

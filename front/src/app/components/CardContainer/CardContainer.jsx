@@ -30,15 +30,15 @@ export default function CardContainer() {
   return (
     <>
       <div className="cardsContainerBox">
-      <h2 className="cardsContainerTitle">Catégories</h2>
+        <h2 className="cardsContainerTitle">Catégories</h2>
 
-      <div className="cardsContainer">
-        {catData.map((item, index) => (
-          <CategoryCard key={index} name={item.name} image={item.image} />
-          // <p>{item.name}</p>
-        ))}
-      </div>
-    </div >
+        <div className="cardsContainer">
+          {catData.map((item, index) => (
+            <CategoryCard key={index} name={item.name} image={item.image} cat_id={item.id} />
+            // <p>{item.name}</p>
+          ))}
+        </div>
+      </div >
     </>
   );
 }
