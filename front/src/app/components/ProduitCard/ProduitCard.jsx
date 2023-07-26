@@ -31,6 +31,7 @@ export default function ProduitCard({ image, id, name, key, desc, price, stock }
         summary: "Erreur",
         detail: "Pas assez de stock pour votre commande"
       })
+      return
      
     } else if (quantityToAdd === 0) {
       // Si la quantité à ajouter est égale à 0, supprimer l'item du panier
