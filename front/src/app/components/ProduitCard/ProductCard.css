@@ -1,0 +1,135 @@
+.productCardContainer {
+    margin: 10px;
+    display: flex;
+    width: 90%;
+    padding: 20px;
+    background-color: white;
+    gap: 20px;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.33);
+}
+
+.productCardColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 5px;
+}
+
+.productCardColumn.size1 {
+    width: 120px;
+}
+
+.productCardColumn.size2 {
+    width: 200px;
+}
+
+.productCardColumn.size3 {
+    width: 200px;
+}
+
+.productCardColumn.size4 {
+    width: 300px;
+}
+
+.productCardImg {
+    border: 1px solid #D90853;
+    margin: auto;
+}
+
+.ProductLine {
+    border-right: 1px solid #D90853;
+}
+
+.productCardName {
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: #D90853;
+}
+
+.productCardPrice,
+.productCardStock,
+.productCardDescription>strong,
+.productCardQuantityContainerTitle {
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #D90853;
+}
+
+.productCardPrice>strong,
+.productCardStock>strong,
+.productCardDescription {
+    font-family: sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: #3C3C3C;
+}
+
+
+
+.productCardQuantityContainer {
+    display: flex;
+    margin: auto;
+}
+
+.productCardQuantityContainerTitle {
+    margin-right: 10px;
+}
+
+.productCardDecrementBtn,
+.productCardIncrementBtn {
+    padding: 5px 10px;
+    background-color: #D90853;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.productCardQuantityContainer>input {
+    border: 1px solid #D90853;
+    width: 50px;
+    padding: 0px 5px;
+}
+
+.productCardShopBtn {
+    color: white;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 10px;
+    background-color: #D90853;
+    border: 1px solid #D90853;
+    border-radius: 4px;
+    transition: 0.3s;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.productCardShopBtn:hover {
+    background-color: white;
+    color: #D90853;
+}
+
+
+/* MOBILE */
+@media screen and (max-width:800px) {
+    .productCardContainer {
+        flex-direction: column;
+    }
+
+    .ProductLine {
+        border-right: none;
+        border-bottom: 1px solid #D90853;
+    }
+
+    .productCardShopBtn {
+        margin: auto;
+        width: 100%;
+    }
+}

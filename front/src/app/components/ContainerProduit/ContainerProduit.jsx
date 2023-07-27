@@ -5,6 +5,7 @@ import customFetch from "@/app/APICalls/fetch";
 import ProduitCard from "../ProduitCard/ProduitCard";
 import CategoryCardFilter from "../CategoryCard/CategoryCardfilter";
 import { base_url } from "@/app/APICalls/base_url";
+import "./ContainerProduct.css";
 
 export default function ContainerProduit() {
   const [prodData, setprodData] = useState([]);
@@ -77,11 +78,11 @@ export default function ContainerProduit() {
 
           ))}
         </div>
+      </div>
 
-      </div >
-      <div>
+      <div className="allProductCardContainerTitle">
         <h2>Produits</h2>
-        <div>
+        <div className="allProductCardContainer">
           {prodData
             .filter((item) => selectedCategoryId === null || (item.cat && item.cat.id === selectedCategoryId))
             .map((item, index) => (
