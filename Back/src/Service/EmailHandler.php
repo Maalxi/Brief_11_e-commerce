@@ -19,7 +19,7 @@ class EmailHandler
     public function sendTemplateEmail(string $email, string $subject, string $template, array $context): void
     {
         $email = (new TemplatedEmail())
-            ->from('quarter-backend@simplon.com') # paramètrable dans config/packages/mailer.yaml
+            ->from('Simplon@simplon.com') # paramètrable dans config/packages/mailer.yaml
             ->to($email)
             ->subject($subject)
             ->htmlTemplate($template)
