@@ -23,7 +23,7 @@ export default function ProduitCard({ image, id, name, key, desc, price, stock }
     }
   };
 
-  const addToCart = (productId, quantityToAdd, inventory) => {
+  const addToCart = (productId, quantityToAdd, inventory, prix_u) => {
     const pannier = JSON.parse(localStorage.getItem('pannier')) || [];
 
     if (quantityToAdd > inventory) {
@@ -46,9 +46,10 @@ export default function ProduitCard({ image, id, name, key, desc, price, stock }
     if (existingItemIndex !== -1) {
       // Si le produit est déjà dans le panier, écraser la quantité avec la nouvelle valeur
       pannier[existingItemIndex].quantity = quantityToAdd;
+      pannier[existingItemIndex].price_total = prix_u * quantityToAdd
     } else {
       // Sinon, ajouter le produit au panier avec la quantité spécifiée et son ID
-      pannier.push({ productId, quantity: quantityToAdd });
+      pannier.push({ productId, quantity: quantityToAdd, price_total: prix_u*quantityToAdd });
     }
 
     localStorage.setItem('pannier', JSON.stringify(pannier));
@@ -101,7 +102,7 @@ export default function ProduitCard({ image, id, name, key, desc, price, stock }
           <button className="productCardIncrementBtn" onClick={increment}>+</button>
         </div>
 
-        <button className="productCardShopBtn" onClick={() => addToCart(id_prod, quantity, stock)}>Panier</button>
+        <button className="productCardShopBtn" onClick={() => addToCart(id_prod, quantity, stock, price)}>Panier</button>
         </div>
 
       </div>
