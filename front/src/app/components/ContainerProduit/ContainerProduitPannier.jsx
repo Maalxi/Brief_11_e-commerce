@@ -27,7 +27,7 @@ export default function ContainerProduitPannier() {
   return (
     <>
       <div className="allProductCardContainerTitle">
-        <h2>Pannier</h2>
+        <h2>Panier</h2>
         <div className="allProductCardContainer">
           {data.map((item, index) => (
               <ProduitCardPannier

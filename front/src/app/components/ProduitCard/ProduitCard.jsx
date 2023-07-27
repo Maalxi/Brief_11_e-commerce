@@ -74,7 +74,7 @@ export default function ProduitCard({ image, id, name, key, desc, price, stock }
       toast.current.show({
         severity: "success",
         summary: "Supprimer",
-        detail: "Produit supprimmer du pannier"
+        detail: "Produit supprimé du panier"
       })
       return;
     }
@@ -88,7 +88,7 @@ export default function ProduitCard({ image, id, name, key, desc, price, stock }
       toast.current.show({
         severity: "success",
         summary: "Modification",
-        detail: "Quantité modifié dans le pannier"
+        detail: "Quantité modifiée dans le panier"
       })
     } else {
       // Sinon, ajouter le produit au panier avec la quantité spécifiée et son ID
@@ -105,7 +105,7 @@ export default function ProduitCard({ image, id, name, key, desc, price, stock }
       toast.current.show({
         severity: "success",
         summary: "Ajout",
-        detail: "Produit ajouter au pannier"
+        detail: "Produit ajouté au panier"
       })
     }
 
