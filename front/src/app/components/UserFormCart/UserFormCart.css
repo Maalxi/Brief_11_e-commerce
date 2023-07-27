@@ -1,0 +1,226 @@
+.UserFormCart {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+}
+
+.UserFormCartTitle {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #D90853;
+}
+
+.UserFormCartForm {
+    margin: 20px 0;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.33);
+    display: flex;
+}
+
+@media screen and (max-width:700px) {
+    .UserFormCartForm {
+        flex-direction: column;
+    }
+}
+
+
+
+/* LEFT COLUMN */
+.UserFormCartLeft {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    border-right: 1px solid #D90853;
+    width: auto;
+}
+
+@media screen and (max-width:700px) {
+    .UserFormCartLeft {
+        /* display: flex; */
+        border-right: none;
+        border-bottom: 1px solid #D90853;
+    }
+}
+
+.UserFormCartSubtitle {
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #3C3C3C;
+}
+
+
+.UserFormCartFormStyle {
+    color: #D90853;
+    display: flex;
+    justify-content: space-between;
+}
+
+.UserFormCartFormStyle>label {
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.UserFormCartFormStyle>input,
+.UserFormCartFormStyle>input[type="email"] {
+    margin: 0;
+    padding: 0;
+    width: 74%;
+    border: 1px solid #D90853;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.UserFormCartFormRadio {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 10px;
+}
+
+.UserFormCartFormRadioContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.UserFormCartFormRadioContainer>label {
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3C3C3C;
+}
+
+
+
+
+
+
+/* RADIO */
+.UserFormCartFormRadioContainer input[type="radio"] {
+    /* Cacher le bouton radio par défaut */
+    opacity: 0;
+    position: absolute;
+  }
+  
+  .UserFormCartFormRadioContainer input[type="radio"] + label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+  }
+  
+  .UserFormCartFormRadioContainer input[type="radio"] + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #D90853;
+    border-radius: 50%;
+  }
+  
+  .UserFormCartFormRadioContainer input[type="radio"]:checked + label::before {
+    border-color: #D90853;
+    background-color: #D90853; /* Couleur de fond lorsque le bouton radio est sélectionné */
+  }
+  
+  .UserFormCartFormRadioContainer input[type="radio"] + label::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #D90853; /* Point central lorsque le bouton radio est sélectionné */
+    opacity: 0;
+  }
+  
+  .UserFormCartFormRadioContainer input[type="radio"]:checked + label::after {
+    opacity: 1;
+  }
+  
+
+
+
+
+
+/* RIGHT COLUMN */
+.UserFormCartRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: start;
+    padding: 20px;
+    gap: 20px;
+    width: auto;
+}
+
+.UserFormCartQuestionPromo {
+    font-family: sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #3C3C3C;
+}
+
+.UserFormCartCodePromoStyle {
+    display: flex;
+    justify-content: space-between;
+    color: #D90853;
+    gap: 10px;
+}
+
+.UserFormCartCodePromoStyle>label {
+    font-family: sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    width: 100%;
+}
+
+.UserFormCartCodePromoStyle>input {
+    width: 74%;
+    border: 1px solid #D90853;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.UserFormCartBtn {
+    color: white;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 10px;
+    background-color: #D90853;
+    border: 1px solid #D90853;
+    border-radius: 4px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.UserFormCartCodePromo {
+    padding: 20px;
+    border-bottom: 1px solid #D90853;
+    width: 100%;
+}
+
+.UserFormCartPrice {
+    color: #3C3C3C;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.UserFormCartPriceValid {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.UserFormCartBtn:hover {
+    background-color: white;
+    color: #D90853;
+}
