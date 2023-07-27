@@ -38,7 +38,7 @@ export default function SearchBar() {
     } else {
       setProdData([]); // vide le tableau de résultat si la chaîne de recherche est trop courte
     }
-}
+  }
 
   return (
     <div>
@@ -58,8 +58,7 @@ export default function SearchBar() {
 
       {/* Afficher les résultats de la recherche */}
       {prodData.length > 0 && (
-        <div className="searchResults">
-          <div>
+          <div className="searchResults">
             {prodData.map((item, index) => (
               <ProduitCard
                 id={item.id}
@@ -71,7 +70,6 @@ export default function SearchBar() {
                 stock={item.inventory}
               />
             ))}
-          </div>
         </div>
       )}
     </div>

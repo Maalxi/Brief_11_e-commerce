@@ -8,13 +8,41 @@ import { SiMinutemailer } from "react-icons/si";
 import React from "react";
 
 import "./PageContact.css";
+import { base_url } from "../APICalls/base_url";
 
 export default function Contact() {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const data = new FormData(event.target);
+
+    const response = await fetch(base_url + '127.0.0.1:8001/sendEmail', {
+      method: "POST",
+      body: JSON.stringify({
+        email: data.get("email"),
+        first: data.get("first"),
+        last: data.get("last"),
+        phone: data.get("phone"),
+        subject: data.get("subject"),
+        message: data.get("message"),
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      alert("Votre message a été envoyé !");
+    } else {
+      alert("Il y a eu une erreur lors de l'envoi de votre message.");
+    }
+  };
+  
   return (
     <Layout>
       <div className="formContactAll">
         <div className="formContactGauche">
-          <form className="formContact">
+        <form className="formContact" onSubmit={handleSubmit}>
             <h2 className="h2Contact">Contactez nous !</h2>
             <div className="email InputFormContact">
               <label htmlFor="frm-email">Email</label>
@@ -27,27 +55,27 @@ export default function Contact() {
               />
             </div>
             <div className="name InputFormContact">
-                <label htmlFor="frm-first">Prénom</label>
-                <input
-                  className="inputContact"
-                  id="frm-first"
-                  type="text"
-                  name="first"
-                  autoComplete="given-name"
-                  required
-                />
+              <label htmlFor="frm-first">Prénom</label>
+              <input
+                className="inputContact"
+                id="frm-first"
+                type="text"
+                name="first"
+                autoComplete="given-name"
+                required
+              />
               <div>
-              <div className="InputFormContact">
-                <label htmlFor="frm-last">Nom</label>
-                <input
-                  className="inputContact"
-                  id="frm-last"
-                  type="text"
-                  name="last"
-                  autoComplete="family-name"
-                  required
-                />
-              </div>
+                <div className="InputFormContact">
+                  <label htmlFor="frm-last">Nom</label>
+                  <input
+                    className="inputContact"
+                    id="frm-last"
+                    type="text"
+                    name="last"
+                    autoComplete="family-name"
+                    required
+                  />
+                </div>
               </div>
               <div className="phone InputFormContact">
                 <label htmlFor="frm-phone">Téléphone</label>
@@ -92,7 +120,10 @@ export default function Contact() {
             <div className="iconContact">
               <ImLocation />
             </div>
-            <p>Adresse : 24 Av. Daniel Rops, <br/>73000 Chambéry</p>
+            <p>
+              Adresse : 24 Av. Daniel Rops, <br />
+              73000 Chambéry
+            </p>
           </div>
 
           <div className="Telephone">
@@ -108,7 +139,6 @@ export default function Contact() {
             </div>
             <p>Email : Simplon@simplon.com</p>
           </div>
-
         </div>
       </div>
     </Layout>

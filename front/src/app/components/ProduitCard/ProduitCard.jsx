@@ -92,7 +92,7 @@ export default function ProduitCard({ image, id, name, key, desc, price, stock }
           <button className="productCardDecrementBtn" onClick={decrement}>-</button>
           <input
             type="number"
-            min="0" readOnly
+            min="0"
             step="1"
             value={quantity}
             readOnly
