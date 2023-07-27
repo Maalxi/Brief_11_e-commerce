@@ -8,6 +8,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Post;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ReservationRepository::class)]
@@ -18,6 +20,9 @@ use Doctrine\ORM\Mapping as ORM;
         ),
         new Get(
             normalizationContext: ['groups' => ['reservation_read']]
+        ),
+        new Post(
+            denormalizationContext: ['groups' => ['reservation_write']]
         )
     ]
 )]
@@ -32,19 +37,21 @@ class Reservation
     private ?Promotion $promotion = null;
 
     #[ORM\Column]
+    #[Groups(['reservation_write', 'products_read', 'product_read'])]
     private ?float $price = null;
 
     #[ORM\Column]
-    private ?float $price_final = null;
-
-    #[ORM\Column]
+    #[Groups(['reservation_write', 'products_read', 'product_read'])]
     private ?bool $validation = null;
 
     #[ORM\ManyToMany(targetEntity: Product::class, mappedBy: 'reservation')]
+    #[Groups(['reservation_write', 'products_read', 'product_read'])]
     private Collection $products;
 
-    #[ORM\ManyToOne(inversedBy: 'reservations')]
+    #[ORM\ManyToOne(targetEntity: User::class, cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['reservation_write', 'reservations_read', 'reservation_read'])]
+
     private ?User $user = null;
 
     public function __construct()
@@ -77,18 +84,6 @@ class Reservation
     public function setPrice(float $price): static
     {
         $this->price = $price;
-
-        return $this;
-    }
-
-    public function getPriceFinal(): ?float
-    {
-        return $this->price_final;
-    }
-
-    public function setPriceFinal(float $price_final): static
-    {
-        $this->price_final = $price_final;
 
         return $this;
     }
