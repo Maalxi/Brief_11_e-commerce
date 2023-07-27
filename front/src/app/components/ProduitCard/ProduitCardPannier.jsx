@@ -1,43 +1,16 @@
 'use client'
 
 import Image from "next/image";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "@/app/AppContext";
 import './ProductCard.css';
 
-
-export default function ProduitCard({ image, id, name, key, desc, price, stock }) {
+export default function ProductCardPannier({ image, id, name, key, desc, price, stock, quantite }) {
   const img_url = "http://127.0.0.1:8001/uploads/images/" + image;
   const id_prod = id;
   const { toast } = useContext(AppContext);
-  const [dataLocal, setDataLocal] = useState('');
-  
-  const [quantity, setQuantity] = useState(() => {
-    const cartData = localStorage.getItem('pannier');
-    if (cartData) {
-      const parsedCartData = JSON.parse(cartData);
-      const filteredData = parsedCartData.filter(item => item.productId === id_prod);
-      if (filteredData.length > 0) {
-        return filteredData[0].quantity;
-      }
-    }
-    return 0; // Valeur par défaut si le produit n'est pas présent dans le localStorage
-  });
 
-  useEffect(() => {
-    const getCartFromLocalStorage = () => {
-      const cartData = localStorage.getItem('pannier');
-      if (cartData) {
-        const parsedCartData = JSON.parse(cartData);
-        const filteredData = parsedCartData.filter(item => item.productId === id_prod);
-        if (filteredData.length > 0) {
-          setDataLocal(filteredData[0]);
-        }
-      }
-    };
-
-    getCartFromLocalStorage();
-  }, []);
+  const [quantity, setQuantity] = useState(quantite);
 
   const handleInputChange = (e) => {
     const inputValue = e.target.value;
