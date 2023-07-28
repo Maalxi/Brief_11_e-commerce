@@ -40,7 +40,7 @@ export default function Contact() {
     <Layout>
       <div className="formContactAll">
         <div className="formContactGauche">
-        <form className="formContact" onSubmit={handleSubmit}>
+        <form className="formContact" >
             <h2 className="h2Contact">Contactez nous !</h2>
             <div className="email InputFormContact">
               <label htmlFor="frm-email">Email</label>
