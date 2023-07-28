@@ -1,5 +1,6 @@
 import Image from "next/image";
 import './Hero.css';
+import Link from "next/link";
 
 export default function Hero() {
     return (
@@ -10,7 +11,7 @@ export default function Hero() {
                     <h1 className="heroTitle">Oubliez la crise,
                         <br />
                         succombez à la cerise !</h1>
-                    <button className="heroBtn">Voir nos produits</button>
+                    <Link href='/produits' className="heroBtn">Voir nos produits</Link>
                 </div>
 
                 <div className="heroContainerRight">
