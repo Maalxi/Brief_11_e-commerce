@@ -42,5 +42,18 @@ php bin/console doctrine:migrations:migrate
 
 Vérifier que la base est créer dans phpMyAdmin.  
 En étant situé sur votre base fraichement créée, copié le contenu de fake_data.sql depuis votre IDE et le coller dans l'onglet SQL de phpMyAdmin.  
-Puis exécuter la requête pour alimenter la base avec des fake data.    
+Puis exécuter la requête pour alimenter la base avec des fake data.
 
+### Lancer le projet
+
+Vous devez lancer le front avant le back pour que tous fonctionne
+
+```shell
+cd front
+npm run dev
+```
+
+```shell
+cd Back
+symfony serve
+```

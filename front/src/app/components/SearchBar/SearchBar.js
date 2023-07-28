@@ -12,8 +12,6 @@ export default function SearchBar() {
   const [searchValue, setSearchValue] = useState("");
   const [prodData, setProdData] = useState([]);
 
-  const img_url = "http://127.0.0.1:8001/uploads/images/";
-
   const fetchDataProd = async (searchValue) => {
     try {
       const response = await fetch(`${base_url}127.0.0.1:8001/api/products`);
