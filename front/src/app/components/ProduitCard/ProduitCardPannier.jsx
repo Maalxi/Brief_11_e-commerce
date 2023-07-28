@@ -104,7 +104,7 @@ export default function ProductCardPannier({ image, id, name, key, desc, price, 
           <p className="productCardName">{name}</p>
           <p className="productCardPrice">
             <strong>Prix : </strong>
-            {price * quantity} €
+            {(price * quantity).toFixed(2)} €
           </p>
           <p className="productCardStock">
             <strong>Nombre d'articles en stock : </strong>

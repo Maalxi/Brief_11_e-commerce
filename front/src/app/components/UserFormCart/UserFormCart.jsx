@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import React, { useState, useEffect } from 'react';
 import './UserFormCart.css';
 import { base_url } from '@/app/APICalls/base_url';
@@ -9,7 +9,8 @@ function UserFormCart() {
   const [email, setEmail] = useState('');
   const [modePaiement, setModePaiement] = useState('');
   const [codePromo, setCodePromo] = useState('');
-  const [data, setData] = useState([]);
+  const [data, setData] = useState('');
+  const [prixTotal, setPrixTotal] = useState(0);
 
   useEffect(() => {
     const getCartFromLocalStorage = () => {
@@ -22,17 +23,17 @@ function UserFormCart() {
 
     getCartFromLocalStorage();
   }, []);
+  useEffect(() => {
+    setPrixTotal(calculateTotalPrice(data));
+  }, [data]);
 
-  const totalPrice = data.reduce((total, item, index) => {
-    return total + item.price * item.quantity;
-  }, 0);
-  console.log(totalPrice);
+  function calculateTotalPrice(data) {
+    return data.reduce((total, item) => {
+      return total + item.price * item.quantity;
+    }, 0);
+  }
 
-  // const productPrice = data.map((item) => item.price);
-  // const productQuantity = data.map((item) => item.quantity);
-  // console.log(productPrice);
-  // console.log(productQuantity);
-
+  const productIds = data.map((item) => item.productId);
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -46,18 +47,16 @@ function UserFormCart() {
     setEmail('');
     setModePaiement('');
     setCodePromo('');
-    console.log("test");
 
     try {
       const orderData = {
-        validation: true,
-        price: 10,
-        price_total: 8,
-        products: ["/api/products/2"],
+        validation: false,
+        price: prixTotal,
+        products: productIds.map((productId) => `/api/products/${productId}`),
         user: {
-          first: "Toufik",
-          last: "Dabossss",
-          email: "email@exemple.com"
+          first: nom,
+          last: prenom,
+          email: email
         }
       };
 
@@ -73,25 +72,10 @@ function UserFormCart() {
         throw new Error('Erreur lors de la commande');
       }
 
-      // Facultativement, gérez la réponse ou affichez un message de succès
-      // const order = await response.json();
-      // console.log(order);
-
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handlePromoCodeSubmit = (event) => {
-    event.preventDefault();
-
-    // Ajoutez ici le code pour gérer la soumission du code promo
-    // Vous pouvez effectuer un appel API pour valider le code promo
-    // ...
-
-    // Effacez l'entrée du code promo après la soumission
-    setCodePromo('');
-  };
+  } catch (error){
+    console.error(error);
+  }
+};
 
   return (
     <div className='UserFormCart'>
@@ -140,21 +124,17 @@ function UserFormCart() {
         <div className='UserFormCartRight'>
           <p className='UserFormCartQuestionPromo'>Vous possédez un code promo ?</p>
 
-          <div className='UserFormCartCodePromoStyle'>
-            <label htmlFor="code">CODE PROMO :</label>
-            <input
-              type="text"
-              id="code"
-              name="code"
-              value={codePromo}
-              onChange={(e) => setCodePromo(e.target.value)}
-              required
-            />
-            <input className='UserFormCartBtn' type="submit" value="Appliquer" onClick={handlePromoCodeSubmit} />
-          </div>
+          <form className='UserFormCartCodePromo'
+           >
+            <div className='UserFormCartCodePromoStyle'>
+              <label htmlFor="code">CODE PROMO :</label>
+              <input type="text" id="code" name="code" value={codePromo} onChange={(e) => setCodePromo(e.target.value)} required></input>
+              <input className='UserFormCartBtn' type="submit" value="Appliquer"></input>
+            </div>
+          </form>
 
           <div className='UserFormCartPriceValid'>
-            <p className='UserFormCartPrice'>TOTAL : <strong>{totalPrice}</strong></p> {/* Affichez le prix total ici */}
+            <p className='UserFormCartPrice'>TOTAL : <strong>{prixTotal.toFixed(2)}</strong></p>
             <input className='UserFormCartBtn' type="submit" value="Valider le panier" />
           </div>
         </div>
