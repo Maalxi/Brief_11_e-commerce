@@ -1,15 +1,16 @@
-"use client"
+'use client'
 import React, { useState, useEffect } from 'react';
 import './UserFormCart.css';
 import { base_url } from '@/app/APICalls/base_url';
 
-function UserFormCart({ totalPrice }) {
+function UserFormCart() {
   const [nom, setNom] = useState('');
   const [prenom, setPrenom] = useState('');
   const [email, setEmail] = useState('');
   const [modePaiement, setModePaiement] = useState('');
   const [codePromo, setCodePromo] = useState('');
   const [data, setData] = useState([]);
+  const [prixTotal, setPrixTotal] = useState(0);
 
   useEffect(() => {
     const getCartFromLocalStorage = () => {
@@ -22,6 +23,16 @@ function UserFormCart({ totalPrice }) {
 
     getCartFromLocalStorage();
   }, []);
+
+  useEffect(() => {
+    setPrixTotal(calculateTotalPrice(data));
+  }, [data]);
+
+  function calculateTotalPrice(data) {
+    return data.reduce((total, item) => {
+      return total + item.price * item.quantity;
+    }, 0);
+  }
 
   const productIds = data.map((item) => item.productId);
 
@@ -38,18 +49,16 @@ function UserFormCart({ totalPrice }) {
     setEmail('');
     setModePaiement('');
     setCodePromo('');
-    console.log("test");
 
     try {
       const orderData = {
-        validation: true,
-        price: 10,
-        price_total: 8,
+        validation: false,
+        price: prixTotal,
         products: productIds.map((productId) => `/api/products/${productId}`),
         user: {
-          first: "Toufik",
-          last: "Dabossss",
-          email: "email@exemple.com"
+          first: nom,
+          last: prenom,
+          email: email
         }
       };
 
@@ -65,10 +74,6 @@ function UserFormCart({ totalPrice }) {
         throw new Error('Erreur lors de la commande');
       }
 
-      // Facultativement, gérez la réponse ou affichez un message de succès
-      // const order = await response.json();
-      // console.log(order);
-
     } catch (error) {
       console.error(error);
     }
@@ -76,12 +81,6 @@ function UserFormCart({ totalPrice }) {
 
   const handlePromoCodeSubmit = (event) => {
     event.preventDefault();
-
-    // Ajoutez ici le code pour gérer la soumission du code promo
-    // Vous pouvez effectuer un appel API pour valider le code promo
-    // ...
-
-    // Effacez l'entrée du code promo après la soumission
     setCodePromo('');
   };
 
@@ -140,13 +139,12 @@ function UserFormCart({ totalPrice }) {
               name="code"
               value={codePromo}
               onChange={(e) => setCodePromo(e.target.value)}
-              required
             />
             <input className='UserFormCartBtn' type="submit" value="Appliquer" onClick={handlePromoCodeSubmit} />
           </div>
 
           <div className='UserFormCartPriceValid'>
-            <p className='UserFormCartPrice'>TOTAL : {totalPrice}</p> {/* Affichez le prix total ici */}
+            <p className='UserFormCartPrice'>TOTAL : <strong>{prixTotal.toFixed(2)}</strong></p>
             <input className='UserFormCartBtn' type="submit" value="Valider le panier" />
           </div>
         </div>
