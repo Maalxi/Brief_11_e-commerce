@@ -72,6 +72,8 @@ function UserFormCart() {
         throw new Error('Erreur lors de la commande');
       }
 
+
+
   } catch (error){
     console.error(error);
   }
@@ -125,6 +127,7 @@ function UserFormCart() {
           <p className='UserFormCartQuestionPromo'>Vous possédez un code promo ?</p>
 
           <form className='UserFormCartCodePromo'
+
            >
             <div className='UserFormCartCodePromoStyle'>
               <label htmlFor="code">CODE PROMO :</label>
