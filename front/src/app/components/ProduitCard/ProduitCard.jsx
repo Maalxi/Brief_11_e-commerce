@@ -131,7 +131,7 @@ export default function ProduitCard({ image, id, name, key, desc, price, stock }
           <p className="productCardName">{name}</p>
           <p className="productCardPrice">
             <strong>Prix : </strong>
-            {price * quantity} €
+            {(price * quantity).toFixed(2)} €
           </p>
           <p className="productCardStock">
             <strong>Nombre d'articles en stock : </strong>

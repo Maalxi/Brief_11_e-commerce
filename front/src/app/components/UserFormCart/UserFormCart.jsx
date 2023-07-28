@@ -9,7 +9,7 @@ function UserFormCart() {
   const [email, setEmail] = useState('');
   const [modePaiement, setModePaiement] = useState('');
   const [codePromo, setCodePromo] = useState('');
-  const [data, setData] = useState([]);
+  const [data, setData] = useState('');
   const [prixTotal, setPrixTotal] = useState(0);
 
   useEffect(() => {
@@ -23,7 +23,6 @@ function UserFormCart() {
 
     getCartFromLocalStorage();
   }, []);
-
   useEffect(() => {
     setPrixTotal(calculateTotalPrice(data));
   }, [data]);
@@ -33,9 +32,6 @@ function UserFormCart() {
       return total + item.price * item.quantity;
     }, 0);
   }
-
-  const productIds = data.map((item) => item.productId);
-
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -74,15 +70,11 @@ function UserFormCart() {
         throw new Error('Erreur lors de la commande');
       }
 
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
-  const handlePromoCodeSubmit = (event) => {
-    event.preventDefault();
-    setCodePromo('');
-  };
+  } catch (error){
+    console.error(error);
+  }
+};
 
   return (
     <div className='UserFormCart'>
@@ -131,17 +123,14 @@ function UserFormCart() {
         <div className='UserFormCartRight'>
           <p className='UserFormCartQuestionPromo'>Vous possédez un code promo ?</p>
 
-          <div className='UserFormCartCodePromoStyle'>
-            <label htmlFor="code">CODE PROMO :</label>
-            <input
-              type="text"
-              id="code"
-              name="code"
-              value={codePromo}
-              onChange={(e) => setCodePromo(e.target.value)}
-            />
-            <input className='UserFormCartBtn' type="submit" value="Appliquer" onClick={handlePromoCodeSubmit} />
-          </div>
+          <form className='UserFormCartCodePromo'
+           >
+            <div className='UserFormCartCodePromoStyle'>
+              <label htmlFor="code">CODE PROMO :</label>
+              <input type="text" id="code" name="code" value={codePromo} onChange={(e) => setCodePromo(e.target.value)} required></input>
+              <input className='UserFormCartBtn' type="submit" value="Appliquer"></input>
+            </div>
+          </form>
 
           <div className='UserFormCartPriceValid'>
             <p className='UserFormCartPrice'>TOTAL : <strong>{prixTotal.toFixed(2)}</strong></p>

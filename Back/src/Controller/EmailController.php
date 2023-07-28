@@ -6,7 +6,10 @@ use App\Service\EmailHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
+use Twig\Environment;
 
 class EmailController extends AbstractController
 {
@@ -34,23 +37,32 @@ class EmailController extends AbstractController
     }
 
     #[Route('/sendEmail', name: 'app_send_email', methods: ['POST'])]
-    public function sendEmail(Request $request): Response
+    public function sendEmail(Request $request, MailerInterface $mailer, Environment $twig): Response
     {
         $data = json_decode($request->getContent(), true);
-
-        $this->messageHandler->sendTemplateEmail(
-            $data['email'],
-            "Email de test",
-            "email/emailTemplate.html.twig",
+    
+        // Construire le contenu du mail avec Twig
+        $body = $twig->render(
+            "email/sendEmailTemplate.html.twig",
             [
                 'first' => $data['first'],
                 'last' => $data['last'],
                 'phone' => $data['phone'],
-                'subject' => $data['subject'],
                 'message' => $data['message'],
             ]
         );
-
+    
+        // Créer le message avec Symfony Mailer
+        $email = (new Email())
+            ->from('send@example.com')
+            ->to($data['email'])
+            ->subject($data['subject'])
+            ->html($body);
+    
+        // Envoyer le message
+        $mailer->send($email);
+    
         return new Response('Email envoyé', Response::HTTP_OK);
     }
+    
 }

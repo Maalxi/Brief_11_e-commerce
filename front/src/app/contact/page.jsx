@@ -1,3 +1,5 @@
+"use client"
+
 import Layout from "../Layout";
 import { ImLocation } from "react-icons/im";
 import { BsFillTelephoneFill } from "react-icons/bs";

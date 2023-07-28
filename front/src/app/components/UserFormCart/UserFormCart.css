@@ -215,6 +215,12 @@
     font-weight: 600;
 }
 
+.UserFormCartPrice>strong {
+    color:#D90853;
+    font-weight: 800;
+    font-size: 15px;
+}
+
 .UserFormCartPriceValid {
     width: 100%;
     display: flex;

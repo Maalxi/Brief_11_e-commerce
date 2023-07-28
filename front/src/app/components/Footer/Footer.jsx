@@ -79,7 +79,7 @@ export default function Footer() {
                 <div className='footerLine'></div>
 
                 <div className='footerContainerBottom'>
-                    <p className='paraFooter'>lepicerise.fr-copyright 2023</p>
+                    <p className='paraFooter'>lepicerise.fr - copyright 2023</p>
                 </div>
 
             </div>
