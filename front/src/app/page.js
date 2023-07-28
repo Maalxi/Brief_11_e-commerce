@@ -4,6 +4,7 @@ import Layout from "./Layout.jsx";
 import Hero from "./components/Hero/Hero";
 import CardContainer from "./components/CardContainer/CardContainer";
 import { useEffect } from "react";
+import PromoBanner from "./components/PromoBanner/PromoBanner.js";
 
 export default function Home() {
 
@@ -22,6 +23,7 @@ export default function Home() {
 
   return (
     <Layout>
+      <PromoBanner />
       <Hero />
       <CardContainer />
     </Layout>
