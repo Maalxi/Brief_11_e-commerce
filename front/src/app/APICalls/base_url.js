@@ -1,1 +1,1 @@
-export const base_url = "https://"
+export const base_url = "http://"
