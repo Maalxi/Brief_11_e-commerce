@@ -1,3 +1,5 @@
+"use client"
+
 import Layout from "../Layout";
 import { ImLocation } from "react-icons/im";
 import { BsFillTelephoneFill } from "react-icons/bs";
@@ -40,7 +42,7 @@ export default function Contact() {
     <Layout>
       <div className="formContactAll">
         <div className="formContactGauche">
-        <form className="formContact" >
+        <form className="formContact" onSubmit={handleSubmit}>
             <h2 className="h2Contact">Contactez nous !</h2>
             <div className="email InputFormContact">
               <label htmlFor="frm-email">Email</label>

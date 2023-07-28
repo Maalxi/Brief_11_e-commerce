@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './UserFormCart.css';
 import { base_url } from '@/app/APICalls/base_url';
 
@@ -22,7 +22,9 @@ function UserFormCart({ totalPrice }) {
 
     getCartFromLocalStorage();
   }, []);
-  
+
+  console.log(data);
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -30,13 +32,14 @@ function UserFormCart({ totalPrice }) {
       alert("Veuillez remplir tous les champs obligatoires avant de valider le panier.");
       return;
     }
+
     setNom('');
     setPrenom('');
     setEmail('');
     setModePaiement('');
     setCodePromo('');
     console.log("test");
-    event.preventDefault();
+
     try {
       const orderData = {
         validation: true,
@@ -45,33 +48,45 @@ function UserFormCart({ totalPrice }) {
         products: ["/api/products/2"],
         user: {
           first: "Toufik",
-          last : "Dabossss",
+          last: "Dabossss",
           email: "email@exemple.com"
         }
-      }
+      };
+
       const response = await fetch(base_url + "localhost:8001/api/reservations", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(orderData),
-    })
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData),
+      });
 
-    if (!response.ok){
-      throw new Error('Erreur lors de la commande')
+      if (!response.ok) {
+        throw new Error('Erreur lors de la commande');
+      }
+
+      // Facultativement, gérez la réponse ou affichez un message de succès
+      // const order = await response.json();
+      // console.log(order);
+
+    } catch (error) {
+      console.error(error);
     }
+  };
 
-    // const order = await response.json();
-    // console.log(order);
+  const handlePromoCodeSubmit = (event) => {
+    event.preventDefault();
 
-  } catch (error){
-    console.error(error);
-  }
-};
+    // Ajoutez ici le code pour gérer la soumission du code promo
+    // Vous pouvez effectuer un appel API pour valider le code promo
+    // ...
+
+    // Effacez l'entrée du code promo après la soumission
+    setCodePromo('');
+  };
 
   return (
     <div className='UserFormCart'>
-
       <h2 className='UserFormCartTitle'>VALIDATION</h2>
 
       <form className='UserFormCartForm' onSubmit={handleFormSubmit}>
@@ -80,63 +95,63 @@ function UserFormCart({ totalPrice }) {
 
           <div className='UserFormCartFormStyle'>
             <label htmlFor="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" value={nom} onChange={(e) => setNom(e.target.value)} required></input>
+            <input type="text" id="nom" name="nom" value={nom} onChange={(e) => setNom(e.target.value)} required />
           </div>
 
           <div className='UserFormCartFormStyle'>
             <label htmlFor="prenom">Prénom :</label>
-            <input type="text" id="prenom" name="prenom" value={prenom} onChange={(e) => setPrenom(e.target.value)} required></input>
+            <input type="text" id="prenom" name="prenom" value={prenom} onChange={(e) => setPrenom(e.target.value)} required />
           </div>
 
           <div className='UserFormCartFormStyle'>
             <label htmlFor="email">Email :</label>
-            <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
+            <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </div>
 
           <div className='UserFormCartFormStyle'>
             <label>Mode de paiement :</label>
             <div className='UserFormCartFormRadio'>
               <div className='UserFormCartFormRadioContainer'>
-                <input type="radio" id="espece" name="paiement" value="Espèce" checked={modePaiement === "Espèce"} onChange={() => setModePaiement("Espèce")} required></input>
+                <input type="radio" id="espece" name="paiement" value="Espèce" checked={modePaiement === "Espèce"} onChange={() => setModePaiement("Espèce")} required />
                 <label htmlFor="espece">Espèce</label>
               </div>
 
               <div className='UserFormCartFormRadioContainer'>
-                <input type="radio" id="carte" name="paiement" value="Carte" checked={modePaiement === "Carte"} onChange={() => setModePaiement("Carte")} required></input>
+                <input type="radio" id="carte" name="paiement" value="Carte" checked={modePaiement === "Carte"} onChange={() => setModePaiement("Carte")} required />
                 <label htmlFor="carte">Carte</label>
               </div>
 
               <div className='UserFormCartFormRadioContainer'>
-                <input type="radio" id="cheque" name="paiement" value="Chèque" checked={modePaiement === "Chèque"} onChange={() => setModePaiement("Chèque")} required></input>
+                <input type="radio" id="cheque" name="paiement" value="Chèque" checked={modePaiement === "Chèque"} onChange={() => setModePaiement("Chèque")} required />
                 <label htmlFor="cheque">Chèque</label>
               </div>
             </div>
           </div>
         </div>
 
-
-
         <div className='UserFormCartRight'>
           <p className='UserFormCartQuestionPromo'>Vous possédez un code promo ?</p>
 
-          <form className='UserFormCartCodePromo'
-          //  onSubmit={handleFormSubmit}
-           >
-            <div className='UserFormCartCodePromoStyle'>
-              <label htmlFor="code">CODE PROMO :</label>
-              <input type="text" id="code" name="code" value={codePromo} onChange={(e) => setCodePromo(e.target.value)} required></input>
-              <input className='UserFormCartBtn' type="submit" value="Appliquer"></input>
-            </div>
-          </form>
+          <div className='UserFormCartCodePromoStyle'>
+            <label htmlFor="code">CODE PROMO :</label>
+            <input
+              type="text"
+              id="code"
+              name="code"
+              value={codePromo}
+              onChange={(e) => setCodePromo(e.target.value)}
+              required
+            />
+            <input className='UserFormCartBtn' type="submit" value="Appliquer" onClick={handlePromoCodeSubmit} />
+          </div>
 
           <div className='UserFormCartPriceValid'>
-            <p className='UserFormCartPrice'>TOTAL : {totalPrice}</p> {/* Display the totalPrice here */}
-            <input className='UserFormCartBtn' type="submit" value="Valider le panier"></input>
+            <p className='UserFormCartPrice'>TOTAL : {totalPrice}</p> {/* Affichez le prix total ici */}
+            <input className='UserFormCartBtn' type="submit" value="Valider le panier" />
           </div>
         </div>
       </form>
-
-    </div >
+    </div>
   );
 }
 
