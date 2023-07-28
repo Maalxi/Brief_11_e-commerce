@@ -42,6 +42,7 @@
     background-color: #D90853;
     border: 1px solid #D90853;
     border-radius: 4px;
+    text-decoration: none;
     transition: 0.3s;
     cursor: pointer;
 }
