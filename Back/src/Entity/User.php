@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Get;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
@@ -29,13 +30,16 @@ class User
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $last_name = null;
+    #[Groups(['reservation_write'])]
+    private ?string $last = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $first_name = null;
+    #[Groups(['reservation_write'])]
+    private ?string $first = null;
 
-    #[ORM\Column(length: 10)]
-    private ?string $tel = null;
+    #[ORM\Column(length: 100)]
+    #[Groups(['reservation_write'])]
+    private ?string $email = null;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Reservation::class, orphanRemoval: true)]
     private Collection $reservations;
@@ -50,38 +54,38 @@ class User
         return $this->id;
     }
 
-    public function getLastName(): ?string
+    public function getLast(): ?string
     {
-        return $this->last_name;
+        return $this->last;
     }
 
-    public function setLastName(string $last_name): static
+    public function setLast(string $last): static
     {
-        $this->last_name = $last_name;
+        $this->last = $last;
 
         return $this;
     }
 
-    public function getFirstName(): ?string
+    public function getFirst(): ?string
     {
-        return $this->first_name;
+        return $this->first;
     }
 
-    public function setFirstName(string $first_name): static
+    public function setFirst(string $first): static
     {
-        $this->first_name = $first_name;
+        $this->first = $first;
 
         return $this;
     }
 
-    public function getTel(): ?string
+    public function getEmail(): ?string
     {
-        return $this->tel;
+        return $this->email;
     }
 
-    public function setTel(string $tel): static
+    public function setEmail(string $email): static
     {
-        $this->tel = $tel;
+        $this->email = $email;
 
         return $this;
     }

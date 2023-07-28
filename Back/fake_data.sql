@@ -76,30 +76,31 @@ INSERT INTO `promotion` (`id`, `code`, `reduction`, `image`) VALUES
 (10, 'SPRING5', 5, 'spring_promo.jpg');
 
 -- Ajout de données dans la table `user`
-INSERT INTO `user` (`id`, `last_name`, `first_name`, `tel`) VALUES
-(1, 'Dupont', 'Jean', '0612345678'),
-(2, 'Martin', 'Sophie', '0623456789'),
-(3, 'Garcia', 'Pierre', '0712345678'),
-(4, 'Leclerc', 'Marie', '0645678901'),
-(5, 'Fournier', 'Thomas', '0667890123'),
-(6, 'Dumont', 'Emma', '0690123456'),
-(7, 'Bernard', 'Lucas', '0678901234'),
-(8, 'Lambert', 'Camille', '0634567890'),
-(9, 'Robert', 'Manon', '0612345678'),
-(10, 'Moreau', 'Hugo', '0678901234');
+INSERT INTO `user` (`id`, `last`, `first`, `email`) VALUES
+(1, 'Dupont', 'Jean', 'jean.dupont@example.com'),
+(2, 'Martin', 'Sophie', 'sophie.martin@example.com'),
+(3, 'Garcia', 'Pierre', 'pierre.garcia@example.com'),
+(4, 'Leclerc', 'Marie', 'marie.leclerc@example.com'),
+(5, 'Fournier', 'Thomas', 'thomas.fournier@example.com'),
+(6, 'Dumont', 'Emma', 'emma.dumont@example.com'),
+(7, 'Bernard', 'Lucas', 'lucas.bernard@example.com'),
+(8, 'Lambert', 'Camille', 'camille.lambert@example.com'),
+(9, 'Robert', 'Manon', 'manon.robert@example.com'),
+(10, 'Moreau', 'Hugo', 'hugo.moreau@example.com');
+
 
 -- Ajout de données dans la table `reservation`
-INSERT INTO `reservation` (`id`, `promotion_id`, `price`, `price_final`, `validation`, `user_id`) VALUES
-(1, 1, 1.99, 1.79, 1, 1),
-(2, 2, 1.49, 1.19, 1, 2),
-(3, 3, 1.99, 0, 0, 3),
-(4, 4, 1.49, 1.49, 1, 4),
-(5, NULL, 3.99, 3.99, 1, 5),
-(6, 6, 2.49, 2.49, 1, 6),
-(7, 7, 0.99, 0.69, 1, 7),
-(8, 8, 2.19, 2.19, 1, 8),
-(9, 9, 1.19, 1.19, 1, 9),
-(10, 10, 2.49, 2.49, 1, 10);
+INSERT INTO `reservation` (`id`, `promotion_id`, `price`, `validation`, `user_id`) VALUES
+(1, 1, 1.99, 1, 1),
+(2, 2, 1.49, 1, 2),
+(3, 3, 1.99, 3, 3),
+(4, 4, 1.49, 1, 4),
+(5, NULL, 3.99, 1, 5),
+(6, 6, 2.49,1, 6),
+(7, 7, 0.99,1, 7),
+(8, 8, 2.19,1, 8),
+(9, 9, 1.19,1, 9),
+(10, 10, 2.49, 1, 10);
 
 -- Ajout de données dans la table `product_reservation`
 INSERT INTO `product_reservation` (`product_id`, `reservation_id`) VALUES

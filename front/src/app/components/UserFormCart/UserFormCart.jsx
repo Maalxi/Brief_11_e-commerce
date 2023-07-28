@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import './UserFormCart.css';
+import { base_url } from '@/app/APICalls/base_url';
 
 function UserFormCart({ totalPrice }) {
   const [nom, setNom] = useState('');
@@ -8,25 +9,65 @@ function UserFormCart({ totalPrice }) {
   const [email, setEmail] = useState('');
   const [modePaiement, setModePaiement] = useState('');
   const [codePromo, setCodePromo] = useState('');
+  const [data, setData] = useState('');
 
-  const handleFormSubmit = (event) => {
+  useEffect(() => {
+    const getCartFromLocalStorage = () => {
+      const cartData = localStorage.getItem('pannier');
+      if (cartData) {
+        const parsedCartData = JSON.parse(cartData);
+        setData(parsedCartData);
+      }
+    };
+
+    getCartFromLocalStorage();
+  }, []);
+  
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    if (!nom || !prenom || !email || !modePaiement || !codePromo) {
+    if (!nom || !prenom || !email || !modePaiement) {
       alert("Veuillez remplir tous les champs obligatoires avant de valider le panier.");
       return;
     }
-
-    // Placez ici votre logique d'envoi du formulaire au serveur
-    // par exemple, en utilisant fetch() ou axios.post()
-
-    // Réinitialiser les champs après soumission réussie si nécessaire
     setNom('');
     setPrenom('');
     setEmail('');
     setModePaiement('');
     setCodePromo('');
-  };
+    console.log("test");
+    event.preventDefault();
+    try {
+      const orderData = {
+        validation: true,
+        price: 10,
+        price_total: 8,
+        products: ["/api/products/2"],
+        user: {
+          first: "Toufik",
+          last : "Dabossss",
+          email: "email@exemple.com"
+        }
+      }
+      const response = await fetch(base_url + "localhost:8001/api/reservations", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(orderData),
+    })
+
+    if (!response.ok){
+      throw new Error('Erreur lors de la commande')
+    }
+
+    // const order = await response.json();
+    // console.log(order);
+
+  } catch (error){
+    console.error(error);
+  }
+};
 
   return (
     <div className='UserFormCart'>
@@ -78,7 +119,9 @@ function UserFormCart({ totalPrice }) {
         <div className='UserFormCartRight'>
           <p className='UserFormCartQuestionPromo'>Vous possédez un code promo ?</p>
 
-          <form className='UserFormCartCodePromo' onSubmit={handleFormSubmit}>
+          <form className='UserFormCartCodePromo'
+          //  onSubmit={handleFormSubmit}
+           >
             <div className='UserFormCartCodePromoStyle'>
               <label htmlFor="code">CODE PROMO :</label>
               <input type="text" id="code" name="code" value={codePromo} onChange={(e) => setCodePromo(e.target.value)} required></input>
