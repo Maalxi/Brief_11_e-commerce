@@ -30,17 +30,17 @@ export default function ContainerProduitPannier() {
         <h2>Panier</h2>
         <div className="allProductCardContainer">
           {data.map((item, index) => (
-              <ProduitCardPannier
-                id={item.productId}
-                key={index + 1}
-                name={item.name}
-                desc={item.desc}
-                price={item.price}
-                image={item.image}
-                stock={item.stock}
-                quantite={item.quantity}
-              />
-            ))}
+            <ProduitCardPannier
+              id={item.productId}
+              key={index + 1}
+              name={item.name}
+              desc={item.desc}
+              price={item.price}
+              image={item.image}
+              stock={item.stock}
+              quantite={item.quantity}
+            />
+          ))}
         </div>
       </div>
     </>
